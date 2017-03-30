@@ -1,3 +1,34 @@
 <div>
-  <h1>Welcome to Glimmer!</h1>
+  <h1>Todo</h1>
+
+  <div>
+    <select onchange={{action toggleOrder}}>
+      <option value="asc" selected={{sortAsc}}>Ascending</option> 
+      <option value="desc" selected={{sortDesc}}>Descending</option>
+    </select>
+  </div>
+
+  <div>
+    <input
+      onclick={{action toggleOnlyUnchecked}}
+      type="checkbox"
+      checked={{onlyUnchecked}}
+    />
+    <span>Only show unchecked items</span>
+  </div>
+
+  <div class="Todo">
+    {{#each todoItems key="@index" as |item|}}
+      <div class="TodoItem">
+        <input
+          onclick={{action toggleChecked item}}
+          class="TodoItem__checkbox"
+          type="checkbox"
+          checked={{item.checked}}
+        />
+
+        <span>{{item.title}}</span>
+      </div>
+    {{/each}}
+  </div>
 </div>
