@@ -62,7 +62,7 @@ export default class GlimmerBzf extends Component {
 
     this.items = [
       ...itemsWithoutItem,
-      item,
+      nextItem,
     ];
   }
 
